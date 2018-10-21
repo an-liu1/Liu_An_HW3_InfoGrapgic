@@ -39,7 +39,7 @@ In order to make the project operate well, there is some software necessarily:
 . git clone git@github.com:an-liu1/A2_Week4.git
 
 2. Install requirements packages within the repo
-* cd A2_Week4
+* cd Liu_An_HW3_InfoGrapgic
 * npm i -D glup
 * npm i -D gulp-sass
 * npm install --save-dev gulp-imagemin
