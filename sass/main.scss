@@ -1,0 +1,17 @@
+@import '_vars';
+@import 'modules/_header';
+@import 'modules/_content';
+@import 'modules/_footer';
+
+div, p, body, header, footer, section, article, nav, h1, h2, h3, h4 
+{
+	margin: 0;
+	padding: 0;
+}
+
+img
+{
+	border: none; 
+	margin: 0;
+	padding: 0;
+}
