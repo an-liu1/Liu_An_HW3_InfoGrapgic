@@ -1,0 +1,38 @@
+{
+  "name": "liu_an_portfolio",
+  "version": "1.0.0",
+  "description": "movie portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/an-liu1/Liu_An_Portfolio.git"
+  },
+  "author": "An Liu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/an-liu1/Liu_An_Portfolio/issues"
+  },
+  "homepage": "https://github.com/an-liu1/Liu_An_Portfolio#readme",
+  "dependencies": {
+    "global": "^4.3.2"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-livereload": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-ruby-sass": "^3.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
+  }
+}
