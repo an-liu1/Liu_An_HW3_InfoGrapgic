@@ -83,7 +83,6 @@ In order to make the project operate well, there is some software necessarily:
 
 ### Authors 
 * An Liu --- Developer
-* Chaochao Li --- Designer
 
 ### License
 
