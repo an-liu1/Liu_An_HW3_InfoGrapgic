@@ -1,0 +1,117 @@
+
+#mainContent {
+    position: relative;
+    right: 3.5%;
+    font-family: $text-font;
+}
+#list li p {
+    font-size:$movie-name-font-phone;
+    font-weight: bold;
+    color: $movie-name-color;
+}
+#list{
+    list-style-type: none;
+}
+#list li {
+    display: block;
+    text-align: center;
+}
+.description {
+    font-size: $introduction-font-size-phone;
+    color: $introduction-font-color;
+}
+.text .description_title {
+    font-weight: bold;
+    font-size: 2em;
+}
+img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.text > .description > .icon {
+    width: 80%;
+    margin: 0 auto;
+}
+#container {
+    width: 400px;
+}
+#chart p {
+    font-size: 1.5em;
+    color: black;
+    font-weight: bold; 
+    text-align: center;
+}
+@media screen and (min-width: 47.75em) {
+    #container {
+        width: 100%;
+    }
+    #list {
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+    }
+    #list li {
+        flex: auto;
+        margin-left: 20px;
+    }
+    .text > .description > .icon {
+        margin: 0 auto;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 63.75em) {
+    body {
+        position: relative;
+        left: 18%;
+    }
+    #mainContent {
+        margin-top: 30px;
+    }
+    #list {
+        display: flex;
+        flex-direction: row;
+        flex-flow: initial;
+    }
+    #list li {
+        flex: auto;
+        margin-left: 20px;
+    }
+    #list li p {
+        font-size: 1em;
+    }
+    .text {
+        float: left;
+        width: 40%;
+        margin-top: 30px;
+    }
+    .text .description_title {
+        font-weight: bold;
+        font-size: 2em;
+    }
+    .text .description {
+        font-size: 1.3em;
+        font-weight: 500;
+        margin: 0 auto;
+    }
+    .text > .description > .icon {
+        text-align: center;
+        width: 350px;
+    }
+    #chart  {
+        float: right;
+        width: 60%;
+    }
+    #chart p {
+        font-size: 1.3em;
+        color: black;
+        font-weight: bold; 
+        text-align: center;
+    }
+    #container {
+        background-color: rgba(238, 238, 238, 0.3);
+        border-radius: 80px;
+        margin-top: 10px;
+        width: 100%;
+    }
+}
