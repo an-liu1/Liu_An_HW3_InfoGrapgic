@@ -1,0 +1,44 @@
+body {
+    background-image: url(../images/bckgrd.png);
+    max-width: 1200px;
+    font-family: $text-font;
+}
+.titleword {
+    font-size: $subtitle-font-size-phone;
+    color: $subtitle-font-color;
+    font-weight: bold;
+    position: absolute;
+    left: 10%;
+    bottom: 96%;
+    color: black;
+    font-weight: bold; 
+}
+.circle {
+    width: 70%;
+}
+@media screen and (min-width: 47.75em) {
+    .titleword {
+        font-size: $subtitle-font-size-tablet;
+        position: absolute;
+        left: 10%;
+        bottom: 94.5%; 
+    }
+}
+
+@media screen and (min-width: 63.75em) {
+    #mainHeader {
+        margin-top: 10px;
+    }
+    .titleword {
+        font-size: $subtitle-font-size;
+        position: absolute;
+        left: 8%;
+        top: 1%;
+        color: black;
+        font-weight: bold; 
+    }
+    .circle {
+        width: 50%;
+        position: relative;
+    }
+}
