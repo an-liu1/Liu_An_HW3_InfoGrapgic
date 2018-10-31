@@ -1,7 +1,10 @@
 body {
-    background-image: url(../images/bckgrd.png);
-    max-width: 1200px;
+    background-image: url(../images/gravel.png);
     font-family: $text-font;
+}
+#mainContainer {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .titleword {
     font-size: $subtitle-font-size-phone;
@@ -15,6 +18,15 @@ body {
 }
 .circle {
     width: 70%;
+    float: left;
+}
+.icon {
+    width: 10%;
+    float: left;
+    margin-top: 5px;
+}
+#mainContent {
+    clear: both;
 }
 @media screen and (min-width: 47.75em) {
     .titleword {
@@ -29,6 +41,9 @@ body {
     #mainHeader {
         margin-top: 10px;
     }
+    .title {
+        position: relative;
+    }
     .titleword {
         font-size: $subtitle-font-size;
         position: absolute;
@@ -39,6 +54,8 @@ body {
     }
     .circle {
         width: 50%;
-        position: relative;
+    }
+    .icon {
+        margin-left: 25%;
     }
 }

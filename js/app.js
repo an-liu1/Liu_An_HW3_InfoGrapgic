@@ -27,12 +27,15 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = JSON.parse(this.responseText);
-                // data.list[0];//取整个json下的list对象的下标为0的内容====={"title": "BLACK PANTHER1",fulltext": "1After the death of his father, T’Challa, the King of Wakanda, returns home to the isolated, technologically advanced African nation to succeed to the throne and take his rightful place as king. But when a powerful old enemy reappears, T’Challa’s mettle as king—and Black Panther—is tested when he is drawn into a formidable conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people and their way of life.  "}
-                // data.list[0].title//获取上面对象的title属性值========="BLACK PANTHER1"}
+                // data.list[0];
+                // data.list[0].title
                 // for (var i = 0; i < data.list.length; i++) {
                 // document.querySelectorctor(".top" + (i + 1))
                 document.querySelector(".topp" + e).innerHTML = data.list[e - 1].title;
                 document.querySelector('.description').innerHTML= data.list[e - 1].fulltext;
+                document.querySelector('.description_title').style.display = "block";
+                document.querySelector('#container1').style.display = "none";
+                document.querySelector('.pie').style.display = "none";
                 }
             };
         xhttp.open("GET", "data.json", true);
@@ -199,5 +202,85 @@
     };;
     if (option && typeof option === "object") {
         myChart.setOption(option, true);
+    }
+
+    var dom1 = document.getElementById("container1");
+    var myChart1 = echarts.init(dom1);
+    var app1 = {};
+    option1 = null
+    option1 = {
+        //backgroundColor: 'white',
+    
+        title: {
+            text: 'Movie Channels',
+            left: 'center',
+            top: 20,
+            textStyle: {
+                color: '#000000'
+            }
+        },
+    
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+    
+        visualMap: {
+            show: false,
+            min: 80,
+            max: 600,
+            inRange: {
+                colorLightness: [0, 1]
+            }
+        },
+        series : [
+            {
+                name:'Sources',
+                type:'pie',
+                radius : '55%',
+                center: ['50%', '50%'],
+                data:[
+                    {value:335, name:'Website'},
+                    {value:310, name:'Phone'},
+                    {value:274, name:'YouTube'},
+                    {value:235, name:'Ads'},
+                    {value:400, name:'Cinema'}
+                ].sort(function (a, b) { return a.value - b.value; }),
+                roseType: 'radius',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'black'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'black'
+                        },
+                        smooth: 0.2,
+                        length: 15,
+                        length2: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+    
+                animationType: 'scale',
+                animationEasing: 'elasticOut',
+                animationDelay: function (idx) {
+                    return Math.random() * 200;
+                }
+            }
+        ]
+    };;
+    if (option1 && typeof option1 === "object") {
+        myChart1.setOption(option1, true);
     }
 })();
