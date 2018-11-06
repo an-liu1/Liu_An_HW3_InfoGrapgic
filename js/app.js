@@ -1,15 +1,5 @@
 (() => {
     $(document).foundation()
-    var dom = document.querySelector('#container');
-    var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
-    var posList = [
-        'left', 'right', 'top', 'bottom',
-        'inside',
-        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-    ];
     var Circlerotate = document.querySelector('.circle1');
     var movielists = document.querySelectorAll('.movielist');
 
@@ -20,33 +10,74 @@
     function uncircleRO() {
         TweenMax.to(Circlerotate, 1, {x: 0, y: 0, rotation: 0, xScale: 1, yScale: 1});
     }
+    // Achieved the function in old way
 
-    function loadDoc() {
-        var e = parseInt(this.className.split('top')[1]);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = JSON.parse(this.responseText);
-                // data.list[0];
-                // data.list[0].title
-                // for (var i = 0; i < data.list.length; i++) {
-                // document.querySelectorctor(".top" + (i + 1))
-                document.querySelector(".topp" + e).innerHTML = data.list[e - 1].title;
-                document.querySelector('.description').innerHTML= data.list[e - 1].fulltext;
-                document.querySelector('.description_title').style.display = "block";
-                document.querySelector('#container1').style.display = "none";
-                document.querySelector('.pie').style.display = "none";
-                }
-            };
-        xhttp.open("GET", "data.json", true);
-        xhttp.send();
+    // function loadDoc() {
+    //     var e = parseInt(this.className.split('top')[1]);
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onreadystatechange = function () {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             var data = JSON.parse(this.responseText);
+    //             // data.list[0];
+    //             // data.list[0].title
+    //             // for (var i = 0; i < data.list.length; i++) {
+    //             // document.querySelectorctor(".top" + (i + 1))
+    //             document.querySelector(".topp" + e).innerHTML = data.list[e - 1].title;
+    //             document.querySelector('.description').innerHTML= data.list[e - 1].fulltext;
+    //             document.querySelector('.description_title').style.display = "block";
+    //             document.querySelector('#container1').style.display = "none";
+    //             document.querySelector('.pie').style.display = "none";
+    //             }
+    //         };
+    //     xhttp.open("GET", "data.json", true);
+    //     xhttp.send();
 
+    // }
+
+
+    // new method
+    function loadDoc(data) {
+        var arr = [data[0], data[1], data[2], data[3], data[4]]
+        var obj = {}
+        for(var titlea in arr){
+            obj[titlea]=arr[titlea]
+        }
+        function loadDoc1(){
+            var e =this.className.split('top')[1];
+            document.querySelector(".topp" + e).textContent = obj[e-1].title;
+            document.querySelector('.description').textContent = obj[e-1].fullcontent;
+            document.querySelector('.description_title').style.display = "block";
+            document.querySelector('#container1').style.display = "none";
+            document.querySelector('.pie').style.display = "none";
+        } 
+        movielists.forEach(movielist => movielist.addEventListener('click', loadDoc1));
+ }
+
+    function getData(){
+        fetch('./admin/connect.php')
+        .then(res => res.json())
+        .then(data => {
+            loadDoc(data);
+    })
+        .catch(function(error){
+            console.log(error);
+        });
     }
-
-    movielists.forEach(movielist => movielist.addEventListener('click', loadDoc));
+    getData();
+    
     Circlerotate.addEventListener('mouseover', circleRO);
     Circlerotate.addEventListener('mouseout', uncircleRO);
  
+    var dom = document.querySelector('#container');
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+    ];
     app.configParameters = {
         rotate: {
             min: -90,
